@@ -85,4 +85,9 @@
   background-color: #fff;
 }
 
+.products-all .product .details {
+  width: 100%;
+  height: 36px;
+}
+
 /*# sourceMappingURL=styles.css.map */

@@ -16,134 +16,121 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  </body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body class="bg-light">
-    <div id="root">
-      <div>
-        <header class="bg-light py-3 sticky-top">
-          <nav
-            class="container d-flex align-items-center justify-content-between pb-3 border-bottom"
-          >
-            <a href="#"><img src="./assets/images/logo.svg" alt="Coral" /></a>
-            <ul class="list-unstyled m-0 p-0 d-flex align-items-center">
-              <li>
-                <a href="index.html#brands" class="btn">Brands</a>
-              </li>
-              <li>
-                <a href="index.html#premium" class="btn">Premium</a>
-              </li>
-              <li>
-                <a href="index.html#new-products" class="btn">New Products</a>
-              </li>
-              <li>
-                <a href="index.html#best-seller" class="btn">Best Sellers</a>
-              </li>
-              <li>
-                <a class="btn" href="search.html"
-                  >Search <i class="bx bx-search"></i
-                ></a>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <section id="search-products" class="min-vh-100 py-5 bg-light">
-          <div class="container">
-            <form class="my-3">
-              <input
-                type="search"
-                class="form-control"
-                placeholder="Search..."
-                value=""
-                control-id="ControlID-1"
-                onkeyup="search()"
-              />
-            </form>
-                    <div class="row g-5 py-5">
-                      <div class="col-md-6 col-xl-3">
-                        <div class="products-all">
-                          <img
-                            src={image}
-                            alt={description}
-                            class="img-fluid"
-                          />
-                          <div class="details bg-dark text-white p-3">
-                            <span class={rating}
-                              ><i class="fa-solid fa-star text-warning"></i
-                              >4.5/146</span
-                            ><span class="price">${price}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-          </div>
-        </section>
-        <footer class="bg-white">
-          <div class="container py-5">
-            <div class="row">
-              <div class="col-md-6 col-lg-3">
-                <img src="./Coral_files/logo.svg" alt="Logo" />
-                <p class="my-5">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aliquam voluptas nisi ipsam totam repudiandae modi.
-                </p>
-                <div class="d-flex gap-5">
-                  <i class="fa-brands fa-facebook"></i
-                  ><i class="fa-brands fa-twitter"></i
-                  ><i class="fa-brands fa-linkedin-in"></i
-                  ><i class="fa-brands fa-dribbble"></i>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                <ul class="list-unstyled">
-                  <li><h3>Catalog</h3></li>
-                  <li>Necklace</li>
-                  <li>Hoodies</li>
-                  <li>Jewelry Box</li>
-                  <li>T-shirt</li>
-                  <li>Jacket</li>
-                </ul>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                <ul class="list-unstyled">
-                  <li><h3>ABOUT US</h3></li>
-                  <li>Our Producers</li>
-                  <li>Sitemap</li>
-                  <li>FAQ</li>
-                  <li>About Us</li>
-                  <li>Terms &amp; Conditions</li>
-                </ul>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                <ul class="list-unstyled">
-                  <li><h3>CUSTOMER SERVICES</h3></li>
-                  <li>Contact Us</li>
-                  <li>Track Your Order</li>
-                  <li>Product Care &amp; Repair</li>
-                  <li>Book an Appointment</li>
-                  <li>Shipping &amp; Returns</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="text-bg-dark">
-            <div
-              class="container py-2 d-flex align-items-center justify-content-between"
-            >
-              <span>© 2022 Tribute , Inc.</span
-              ><img src="./Coral_files/payments.png" alt="" /><a
-                href="https://candid-wisp-8fefa5.netlify.app/search#"
-                class="btn link-light"
-                >Scroll to top <i class="fa-solid fa-arrow-up"></i
-              ></a>
-            </div>
-          </div>
-        </footer>
-      </div>
-    </div>
+  <body class="bg-light" id="search">
+    <header class="bg-light py-3 sticky-top">
+      <nav
+        class="container d-flex align-items-center justify-content-between pb-3 border-bottom"
+      >
+        <a href="index.html"
+          ><img src="./assets/images/logo.svg" alt="Coral"
+        /></a>
+        <ul class="list-unstyled m-0 p-0 d-flex align-items-center">
+          <li>
+            <a href="index.html#brands" class="btn">Brands</a>
+          </li>
+          <li>
+            <a href="index.html#premium" class="btn">Premium</a>
+          </li>
+          <li>
+            <a href="index.html#new-products" class="btn">New Products</a>
+          </li>
+          <li>
+            <a href="index.html#best-seller" class="btn">Best Sellers</a>
+          </li>
+          <li>
+            <a class="btn" href="search.html"
+              >Search <i class="bx bx-search"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id="search-products" class="min-vh-100 py-5 bg-light">
+      <div class="container">
+        <form class="my-3">
+          <input
+            type="search"
+            class="form-control"
+            placeholder="Search..."
+            value=""
+            id="search-item"
+            control-id="ControlID-1"
+            onkeyup="search()"
+          />
+        </form>
 
-    <script src="./scripts.js"></script>
+        <div class="products-all row g-5 py-5" id="product-list"></div>
+      </div>
+    </section>
+    <footer class="bg-white">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <img src="./assets/images/logo.svg" alt="Logo" />
+            <p class="my-5">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+              voluptas nisi ipsam totam repudiandae modi.
+            </p>
+            <div class="d-flex gap-5">
+              <i class="fa-brands fa-facebook"></i
+              ><i class="fa-brands fa-twitter"></i
+              ><i class="fa-brands fa-linkedin-in"></i
+              ><i class="fa-brands fa-dribbble"></i>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <ul class="list-unstyled">
+              <li><h3>Catalog</h3></li>
+              <li>Necklace</li>
+              <li>Hoodies</li>
+              <li>Jewelry Box</li>
+              <li>T-shirt</li>
+              <li>Jacket</li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <ul class="list-unstyled">
+              <li><h3>ABOUT US</h3></li>
+              <li>Our Producers</li>
+              <li>Sitemap</li>
+              <li>FAQ</li>
+              <li>About Us</li>
+              <li>Terms &amp; Conditions</li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <ul class="list-unstyled">
+              <li><h3>CUSTOMER SERVICES</h3></li>
+              <li>Contact Us</li>
+              <li>Track Your Order</li>
+              <li>Product Care &amp; Repair</li>
+              <li>Book an Appointment</li>
+              <li>Shipping &amp; Returns</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="text-bg-dark">
+        <div
+          class="container py-2 d-flex align-items-center justify-content-between"
+        >
+          <span>© 2022 Tribute , Inc.</span
+          ><img src="./assets/images/payments.png" alt="" /><a
+            href="#"
+            class="btn link-light"
+            >Scroll to top <i class="fa-solid fa-arrow-up"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./search.js" defer></script>
 
     <link
       rel="stylesheet"

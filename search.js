@@ -206,154 +206,62 @@ const products = [
     rating: { rate: 3.6, count: 145 },
   },
 ];
+const allProducts = document.getElementsByClassName("products-all")[0];
+products.forEach((product, index) => {
+  let mainDiv = document.createElement("div");
+  mainDiv.className = "col-md-6 col-xl-3 product";
+  let itemImg = document.createElement("img");
+  itemImg.src = product.image;
+  itemImg.alt = product.title;
+  itemImg.className = "img-fluid";
 
-const sort_by = (field, reverse, primer) => {
-  const key = primer
-    ? function (x) {
-        return primer(x[field]);
+  let productDiv = document.createElement("div");
+  productDiv.className = "details bg-dark text-white p-1";
+
+  let productTitle = document.createElement("h5");
+  productTitle.textContent = product.title;
+
+  let spanDiv = document.createElement("div");
+  spanDiv.className = "span-icon";
+  let productSpan = document.createElement("span");
+  productSpan.className = "rating";
+  productSpan.textContent = `${product.rating.rate} / ${product.rating.count}`;
+
+  let productIcon = document.createElement("i");
+  productIcon.className = "bx bxs-star text-warning";
+
+  let productPrice = document.createElement("span");
+
+  productPrice.className = "price";
+  productPrice.textContent = `$${product.price}`;
+
+  allProducts.appendChild(mainDiv);
+  mainDiv.appendChild(itemImg);
+  mainDiv.appendChild(productTitle);
+  mainDiv.appendChild(productDiv);
+  productDiv.appendChild(spanDiv);
+  spanDiv.appendChild(productIcon);
+  spanDiv.appendChild(productSpan);
+  productDiv.appendChild(productPrice);
+});
+
+const search = () => {
+  const searchbox = document.getElementById("search-item").value.toUpperCase();
+  const storeitems = document.getElementById("product-list");
+  const product = document.querySelectorAll(".product");
+  const pname = storeitems.getElementsByTagName("h5");
+
+  for (var i = 0; i < pname.length; i++) {
+    let match = product[i].getElementsByTagName("h5")[0];
+
+    if (match) {
+      let textValue = match.textContent || match.innerHTML;
+
+      if (textValue.toUpperCase().indexOf(searchbox) > -1) {
+        product[i].style.display = "";
+      } else {
+        product[i].style.display = "none";
       }
-    : function (x) {
-        return x[field];
-      };
-
-  reverse = !reverse ? 1 : -1;
-
-  return function (a, b) {
-    return (a = key(a)), (b = key(b)), reverse * ((a > b) - (b > a));
-  };
+    }
+  }
 };
-
-// Sort by price high to low
-let sortedArray = products.sort(sort_by("price", true, parseInt));
-
-const newArray = [];
-const newProductsArray = [];
-const cheapProductsArray = [];
-
-for (let x = 0; x < 5; x++) {
-  newArray.push(sortedArray[x]);
-}
-
-for (let x = 0; x < 9; x++) {
-  if (Number(sortedArray[x].price) > 60 && Number(sortedArray[x].price) < 700)
-    newProductsArray.push(sortedArray[x]);
-}
-for (let x = 19; x > 15; x--) {
-  cheapProductsArray.push(sortedArray[x]);
-}
-
-const premiumProducts = document.getElementsByClassName("premium-products")[0];
-
-newArray.forEach((product, index) => {
-  let mainDiv = document.createElement("div");
-  mainDiv.className = "col-md-6 col-xl-3 product";
-  let itemImg = document.createElement("img");
-  itemImg.src = product.image;
-  itemImg.alt = product.description;
-  itemImg.className = "img-fluid";
-
-  let productDiv = document.createElement("div");
-  productDiv.className = "details bg-dark text-white p-3";
-  let productTitle = document.createElement("h5");
-  productTitle.textContent = product.title;
-
-  let spanDiv = document.createElement("div");
-  spanDiv.className = "span-icon";
-  let productSpan = document.createElement("span");
-  productSpan.className = "rating";
-  productSpan.textContent = `${product.rating.rate} / ${product.rating.count}`;
-
-  let productIcon = document.createElement("i");
-  productIcon.className = "bx bxs-star text-warning";
-
-  let productPrice = document.createElement("span");
-
-  productPrice.className = "price";
-  productPrice.textContent = `$${product.price}`;
-
-  premiumProducts.appendChild(mainDiv);
-  mainDiv.appendChild(itemImg);
-  mainDiv.appendChild(productTitle);
-  mainDiv.appendChild(productDiv);
-  productDiv.appendChild(spanDiv);
-  spanDiv.appendChild(productIcon);
-  spanDiv.appendChild(productSpan);
-  productDiv.appendChild(productPrice);
-});
-
-const newProducts = document.getElementsByClassName("new-products")[0];
-
-newProductsArray.forEach((product, index) => {
-  let mainDiv = document.createElement("div");
-  mainDiv.className = "col-md-6 col-xl-3 product";
-  let itemImg = document.createElement("img");
-  itemImg.src = product.image;
-  itemImg.alt = product.description;
-  itemImg.className = "img-fluid";
-
-  let productDiv = document.createElement("div");
-  productDiv.className = "details bg-dark text-white p-3";
-  let productTitle = document.createElement("h5");
-  productTitle.textContent = product.title;
-
-  let spanDiv = document.createElement("div");
-  spanDiv.className = "span-icon";
-  let productSpan = document.createElement("span");
-  productSpan.className = "rating";
-  productSpan.textContent = `${product.rating.rate} / ${product.rating.count}`;
-
-  let productIcon = document.createElement("i");
-  productIcon.className = "bx bxs-star text-warning";
-
-  let productPrice = document.createElement("span");
-
-  productPrice.className = "price";
-  productPrice.textContent = `$${product.price}`;
-
-  newProducts.appendChild(mainDiv);
-  mainDiv.appendChild(itemImg);
-  mainDiv.appendChild(productTitle);
-  mainDiv.appendChild(productDiv);
-  productDiv.appendChild(spanDiv);
-  spanDiv.appendChild(productIcon);
-  spanDiv.appendChild(productSpan);
-  productDiv.appendChild(productPrice);
-});
-
-const cheapProducts = document.getElementsByClassName("cheap-products")[0];
-cheapProductsArray.forEach((product, index) => {
-  let mainDiv = document.createElement("div");
-  mainDiv.className = "col-md-6 col-xl-3  product";
-  let itemImg = document.createElement("img");
-  itemImg.src = product.image;
-  itemImg.alt = product.description;
-  itemImg.className = "img-fluid";
-
-  let productDiv = document.createElement("div");
-  productDiv.className = "details bg-dark text-white p-3";
-  let productTitle = document.createElement("h5");
-  productTitle.textContent = product.title;
-
-  let spanDiv = document.createElement("div");
-  spanDiv.className = "span-icon";
-  let productSpan = document.createElement("span");
-  productSpan.className = "rating";
-  productSpan.textContent = `${product.rating.rate} / ${product.rating.count}`;
-
-  let productIcon = document.createElement("i");
-  productIcon.className = "bx bxs-star text-warning";
-
-  let productPrice = document.createElement("span");
-
-  productPrice.className = "price";
-  productPrice.textContent = `$${product.price}`;
-
-  cheapProducts.appendChild(mainDiv);
-  mainDiv.appendChild(itemImg);
-  mainDiv.appendChild(productTitle);
-  mainDiv.appendChild(productDiv);
-  productDiv.appendChild(spanDiv);
-  spanDiv.appendChild(productIcon);
-  spanDiv.appendChild(productSpan);
-  productDiv.appendChild(productPrice);
-});
