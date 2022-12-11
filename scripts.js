@@ -234,8 +234,8 @@ for (let x = 0; x < 5; x++) {
   newArray.push(sortedArray[x]);
 }
 
-for (let x = 0; x < 8; x++) {
-  if (Number(sortedArray[x].price) > 60 || Number(sortedArray[x].price) < 700)
+for (let x = 0; x < 9; x++) {
+  if (Number(sortedArray[x].price) > 60 && Number(sortedArray[x].price) < 700)
     newProductsArray.push(sortedArray[x]);
 }
 for (let x = 19; x > 15; x--) {
@@ -245,16 +245,18 @@ for (let x = 19; x > 15; x--) {
 const premiumProducts = document.getElementsByClassName("premium-products")[0];
 
 newArray.forEach((product, index) => {
-  // let itemDiv = document.createElement("div");
-  // itemDiv.classList.add("");
+  let mainDiv = document.createElement("div");
+  mainDiv.className = "col-md-6 col-xl-3 product";
   let itemImg = document.createElement("img");
   itemImg.src = product.image;
   itemImg.alt = product.description;
-  itemImg.classList.add = "img-fluid";
+  itemImg.className = "img-fluid";
 
   let productDiv = document.createElement("div");
   productDiv.className = "details bg-dark text-white p-3";
 
+  let spanDiv = document.createElement("div");
+  spanDiv.className = "span-icon";
   let productSpan = document.createElement("span");
   productSpan.className = "rating";
   productSpan.textContent = `${product.rating.rate} / ${product.rating.count}`;
@@ -262,33 +264,35 @@ newArray.forEach((product, index) => {
   let productIcon = document.createElement("i");
   productIcon.className = "bx bxs-star text-warning";
 
-  let BR = document.createElement("br");
   let productPrice = document.createElement("span");
 
   productPrice.className = "price";
-  productPrice.textContent = product.price;
+  productPrice.textContent = `$${product.price}`;
 
-  premiumProducts.appendChild(itemImg);
-  premiumProducts.appendChild(productDiv);
-  productDiv.appendChild(productSpan);
-
-  productDiv.appendChild(BR);
+  premiumProducts.appendChild(mainDiv);
+  mainDiv.appendChild(itemImg);
+  mainDiv.appendChild(productDiv);
+  productDiv.appendChild(spanDiv);
+  spanDiv.appendChild(productIcon);
+  spanDiv.appendChild(productSpan);
   productDiv.appendChild(productPrice);
 });
 
 const newProducts = document.getElementsByClassName("new-products")[0];
 
 newProductsArray.forEach((product, index) => {
-  // let itemDiv = document.createElement("div");
-  // itemDiv.classList.add("");
+  let mainDiv = document.createElement("div");
+  mainDiv.className = "col-md-6 col-xl-3 product";
   let itemImg = document.createElement("img");
   itemImg.src = product.image;
   itemImg.alt = product.description;
-  itemImg.classList.add = "img-fluid";
+  itemImg.className = "img-fluid";
 
   let productDiv = document.createElement("div");
   productDiv.className = "details bg-dark text-white p-3";
 
+  let spanDiv = document.createElement("div");
+  spanDiv.className = "span-icon";
   let productSpan = document.createElement("span");
   productSpan.className = "rating";
   productSpan.textContent = `${product.rating.rate} / ${product.rating.count}`;
@@ -296,32 +300,34 @@ newProductsArray.forEach((product, index) => {
   let productIcon = document.createElement("i");
   productIcon.className = "bx bxs-star text-warning";
 
-  let BR = document.createElement("br");
   let productPrice = document.createElement("span");
 
   productPrice.className = "price";
-  productPrice.textContent = product.price;
+  productPrice.textContent = `$${product.price}`;
 
-  newProducts.appendChild(itemImg);
-  newProducts.appendChild(productDiv);
-  productDiv.appendChild(productSpan);
-
-  productDiv.appendChild(BR);
+  newProducts.appendChild(mainDiv);
+  mainDiv.appendChild(itemImg);
+  mainDiv.appendChild(productDiv);
+  productDiv.appendChild(spanDiv);
+  spanDiv.appendChild(productIcon);
+  spanDiv.appendChild(productSpan);
   productDiv.appendChild(productPrice);
 });
 
 const cheapProducts = document.getElementsByClassName("cheap-products")[0];
 cheapProductsArray.forEach((product, index) => {
-  // let itemDiv = document.createElement("div");
-  // itemDiv.classList.add("");
+  let mainDiv = document.createElement("div");
+  mainDiv.className = "col-md-6 col-xl-3  product";
   let itemImg = document.createElement("img");
   itemImg.src = product.image;
   itemImg.alt = product.description;
-  itemImg.classList.add = "img-fluid";
+  itemImg.className = "img-fluid";
 
   let productDiv = document.createElement("div");
   productDiv.className = "details bg-dark text-white p-3";
 
+  let spanDiv = document.createElement("div");
+  spanDiv.className = "span-icon";
   let productSpan = document.createElement("span");
   productSpan.className = "rating";
   productSpan.textContent = `${product.rating.rate} / ${product.rating.count}`;
@@ -329,16 +335,51 @@ cheapProductsArray.forEach((product, index) => {
   let productIcon = document.createElement("i");
   productIcon.className = "bx bxs-star text-warning";
 
-  let BR = document.createElement("br");
   let productPrice = document.createElement("span");
 
   productPrice.className = "price";
-  productPrice.textContent = product.price;
+  productPrice.textContent = `$${product.price}`;
 
-  cheapProducts.appendChild(itemImg);
-  cheapProducts.appendChild(productDiv);
-  productDiv.appendChild(productSpan);
+  cheapProducts.appendChild(mainDiv);
+  mainDiv.appendChild(itemImg);
+  mainDiv.appendChild(productDiv);
+  productDiv.appendChild(spanDiv);
+  spanDiv.appendChild(productIcon);
+  spanDiv.appendChild(productSpan);
+  productDiv.appendChild(productPrice);
+});
 
-  productDiv.appendChild(BR);
+const allProducts = document.getElementsByClassName("products-all")[0];
+products.forEach((product, index) => {
+  let mainDiv = document.createElement("div");
+  mainDiv.className = "col-md-2 product";
+  let itemImg = document.createElement("img");
+  itemImg.src = product.image;
+  itemImg.alt = product.description;
+  itemImg.className = "img-fluid";
+
+  let productDiv = document.createElement("div");
+  productDiv.className = "details bg-dark text-white p-1";
+
+  let spanDiv = document.createElement("div");
+  spanDiv.className = "span-icon";
+  let productSpan = document.createElement("span");
+  productSpan.className = "rating";
+  productSpan.textContent = `${product.rating.rate} / ${product.rating.count}`;
+
+  let productIcon = document.createElement("i");
+  productIcon.className = "bx bxs-star text-warning";
+
+  let productPrice = document.createElement("span");
+
+  productPrice.className = "price";
+  productPrice.textContent = `$${product.price}`;
+
+  allProducts.appendChild(mainDiv);
+  mainDiv.appendChild(itemImg);
+  mainDiv.appendChild(productDiv);
+  productDiv.appendChild(spanDiv);
+  spanDiv.appendChild(productIcon);
+  spanDiv.appendChild(productSpan);
   productDiv.appendChild(productPrice);
 });
